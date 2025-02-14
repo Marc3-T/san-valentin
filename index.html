@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carta de San Valentín</title>
-    <!-- Enlace a la fuente Patrick Hand de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Patrick Hand', cursive; /* Aplicar la fuente Patrick Hand */
+            font-family: 'Patrick Hand', cursive;
             margin: 0;
             padding: 0;
             display: flex;
@@ -24,14 +23,15 @@
             position: relative;
             width: 90%;
             max-width: 400px;
+            top: -10%; /* Mueve la caja un poco hacia arriba */
         }
 
         h1 {
             font-size: 2.5em;
             color: #d32f2f;
             margin-bottom: 20px;
-            line-height: 1.2; /* Mejorar el espaciado en móviles */
-            transition: opacity 0.5s ease; /* Transición para desaparecer */
+            line-height: 1.2;
+            transition: opacity 0.5s ease;
         }
 
         button {
@@ -43,8 +43,8 @@
             cursor: pointer;
             border-radius: 10px;
             margin-top: 20px;
-            transition: transform 0.3s ease, opacity 0.5s ease; /* Transición para desaparecer */
-            font-family: 'Patrick Hand', cursive; /* Aplicar la fuente al botón */
+            transition: transform 0.3s ease, opacity 0.5s ease;
+            font-family: 'Patrick Hand', cursive;
         }
 
         button:hover {
@@ -73,11 +73,10 @@
             width: 100%;
             margin: 0 auto;
             animation: abrirCarta 1s ease forwards;
-            font-family: 'Patrick Hand', cursive; /* Aplicar la fuente a la carta */
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Centrar la carta */
+            transform: translate(-50%, -50%);
         }
 
         @keyframes abrirCarta {
@@ -95,26 +94,30 @@
             font-size: 1em;
             color: #333;
             line-height: 1.6;
-            margin: 0; /* Eliminar márgenes por defecto */
+            margin: 0;
         }
 
         /* Ajustes para dispositivos móviles */
         @media (max-width: 600px) {
             h1 {
-                font-size: 2em; /* Tamaño de fuente más pequeño en móviles */
+                font-size: 2em;
             }
 
             button {
                 font-size: 1em;
-                padding: 12px 24px; /* Botón más compacto */
+                padding: 12px 24px;
             }
 
             .carta {
-                padding: 15px; /* Menos padding en móviles */
+                padding: 15px;
             }
 
             .carta p {
-                font-size: 0.9em; /* Tamaño de fuente más pequeño en móviles */
+                font-size: 0.9em;
+            }
+
+            .container {
+                top: -20%; /* Ajuste adicional en móviles */
             }
         }
     </style>
