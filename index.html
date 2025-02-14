@@ -17,45 +17,21 @@
             height: 100vh;
             background-color: #ffebee;
             overflow: hidden;
-            animation: fadeIn 2s ease-out;
-            text-align: center;
-        }
-
-        /* Animación de desvanecimiento para el fondo */
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
         }
 
         .container {
+            text-align: center;
+            position: relative;
             width: 90%;
             max-width: 400px;
-            position: relative;
-            transition: opacity 1s ease;
         }
 
         h1 {
             font-size: 2.5em;
             color: #d32f2f;
             margin-bottom: 20px;
-            line-height: 1.2;
-            animation: slideIn 1s ease-out;
-        }
-
-        /* Animación para el título */
-        @keyframes slideIn {
-            0% {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            line-height: 1.2; /* Mejorar el espaciado en móviles */
+            transition: opacity 0.5s ease; /* Transición para desaparecer */
         }
 
         button {
@@ -67,21 +43,8 @@
             cursor: pointer;
             border-radius: 10px;
             margin-top: 20px;
-            transition: transform 0.3s ease;
-            font-family: 'Patrick Hand', cursive;
-            animation: fadeInButton 1s ease-out;
-        }
-
-        /* Animación de entrada para el botón */
-        @keyframes fadeInButton {
-            0% {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            transition: transform 0.3s ease, opacity 0.5s ease; /* Transición para desaparecer */
+            font-family: 'Patrick Hand', cursive; /* Aplicar la fuente al botón */
         }
 
         button:hover {
@@ -110,17 +73,20 @@
             width: 100%;
             margin: 0 auto;
             animation: abrirCarta 1s ease forwards;
-            font-family: 'Patrick Hand', cursive;
+            font-family: 'Patrick Hand', cursive; /* Aplicar la fuente a la carta */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Centrar la carta */
         }
 
-        /* Animación para la carta */
         @keyframes abrirCarta {
             0% {
-                transform: scale(0);
+                transform: translate(-50%, -50%) scale(0);
                 opacity: 0;
             }
             100% {
-                transform: scale(1);
+                transform: translate(-50%, -50%) scale(1);
                 opacity: 1;
             }
         }
@@ -129,7 +95,7 @@
             font-size: 1em;
             color: #333;
             line-height: 1.6;
-            margin: 0;
+            margin: 0; /* Eliminar márgenes por defecto */
         }
 
         /* Ajustes para dispositivos móviles */
@@ -155,8 +121,8 @@
 </head>
 <body>
     <div class="heart-background"></div>
-    <div class="container" id="container">
-        <h1>¿Quieres ser mi San Valentín?</h1>
+    <div class="container">
+        <h1 id="pregunta">¿Quieres ser mi San Valentín?</h1>
         <button onclick="mostrarCarta()">¡Abrir la carta!</button>
         <div class="carta" id="carta">
             <p>
@@ -174,14 +140,20 @@
 
     <script>
         function mostrarCarta() {
-            const container = document.getElementById('container');
             const carta = document.getElementById('carta');
-            
+            const pregunta = document.getElementById('pregunta');
+            const boton = document.querySelector('button');
+
             // Ocultar la pregunta y el botón
-            container.innerHTML = '';
-            
-            // Mostrar la carta en el centro de la pantalla
-            carta.style.display = 'block';
+            pregunta.style.opacity = '0';
+            boton.style.opacity = '0';
+
+            // Mostrar la carta después de un breve retraso
+            setTimeout(() => {
+                carta.style.display = 'block';
+                pregunta.style.display = 'none';
+                boton.style.display = 'none';
+            }, 500); // 500ms = 0.5s (tiempo de la transición)
         }
     </script>
 </body>
