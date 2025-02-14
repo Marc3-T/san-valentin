@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carta de San Valentín</title>
+    <title>Carta de San Valentín para Loha</title>
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <style>
         body {
@@ -23,7 +23,7 @@
             position: relative;
             width: 90%;
             max-width: 400px;
-            top: -5%; /* Ajuste moderado hacia arriba */
+            top: -5%; 
         }
 
         h1 {
@@ -97,7 +97,7 @@
             margin: 0;
         }
 
-        /* Ajustes para dispositivos móviles */
+        
         @media (max-width: 600px) {
             h1 {
                 font-size: 2em;
@@ -117,7 +117,7 @@
             }
 
             .container {
-                top: -10%; /* Ajuste moderado en móviles */
+                top: -10%; 
             }
         }
     </style>
@@ -126,17 +126,17 @@
     <div class="heart-background"></div>
     <div class="container">
         <h1 id="pregunta">¿Quieres ser mi San Valentín?</h1>
-        <button onclick="mostrarCarta()">¡Abrir la carta!</button>
+        <button onclick="mostrarCarta()">❤️ Si ❤️</button>
         <div class="carta" id="carta">
             <p>
-                Querida [Nombre],<br><br>
-                En este día especial, quiero decirte que eres la persona más importante en mi vida. 
-                Tu sonrisa ilumina mis días y tu amor llena mi corazón de felicidad. 
-                No hay palabras suficientes para expresar lo mucho que significas para mí, 
-                pero espero que este pequeño gesto te haga sentir lo especial que eres.<br><br>
+                Loha mi amor,<br><br>
+                En este día solo me gustaría decirte que eres una de las persona más importantes de mi vida. 
+                Tu compañía y tu amor me hace sentir muy feliz. 
+                No puedo decirte con palabras lo mucho que significas para mí, 
+                pero espero que te hayan gustado los detalles que te quise regalar en este día y te haga sentir lo muy especial que eres.<br><br>
                 Feliz San Valentín, mi amor.<br><br>
-                Con todo mi cariño,<br>
-                [Tu nombre]
+                
+                De: Marce ❤️
             </p>
         </div>
     </div>
@@ -147,16 +147,16 @@
             const pregunta = document.getElementById('pregunta');
             const boton = document.querySelector('button');
 
-            // Ocultar la pregunta y el botón
+            
             pregunta.style.opacity = '0';
             boton.style.opacity = '0';
 
-            // Mostrar la carta después de un breve retraso
+        
             setTimeout(() => {
                 carta.style.display = 'block';
                 pregunta.style.display = 'none';
                 boton.style.display = 'none';
-            }, 500); // 500ms = 0.5s (tiempo de la transición)
+            }, 500); 
         }
     </script>
 </body>
