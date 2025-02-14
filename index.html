@@ -1,94 +1,181 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carta de San Valentín</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f8f8f8;
-      color: #333;
-      padding-top: 50px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de San Valentín</title>
+    <!-- Enlace a la fuente Patrick Hand de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Patrick Hand', cursive; /* Aplicar la fuente Patrick Hand */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffebee;
+            overflow: hidden;
+            animation: fadeIn 2s ease-out;
+        }
 
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 80vh;
-      flex-direction: column;
-    }
+        /* Animación de desvanecimiento para el fondo */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
 
-    .question {
-      font-size: 24px;
-      margin-bottom: 20px;
-      color: #e91e63;
-    }
+        .container {
+            text-align: center;
+            position: relative;
+            width: 90%;
+            max-width: 400px;
+        }
 
-    button {
-      padding: 15px 30px;
-      font-size: 18px;
-      background-color: #e91e63;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+        h1 {
+            font-size: 2.5em;
+            color: #d32f2f;
+            margin-bottom: 20px;
+            line-height: 1.2; /* Mejorar el espaciado en móviles */
+            animation: slideIn 1s ease-out;
+        }
 
-    button:hover {
-      background-color: #d81b60;
-    }
+        /* Animación para el título */
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
 
-    .card {
-      display: none;
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      width: 300px;
-      margin-top: 30px;
-      animation: showCard 1s ease-out;
-    }
+        button {
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+            font-family: 'Patrick Hand', cursive; /* Aplicar la fuente al botón */
+            animation: fadeInButton 1s ease-out;
+        }
 
-    @keyframes showCard {
-      0% {
-        transform: scale(0);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
+        /* Animación de entrada para el botón */
+        @keyframes fadeInButton {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
 
-    .card h2 {
-      font-size: 28px;
-      color: #e91e63;
-    }
+        button:hover {
+            background-color: #b71c1c;
+            transform: scale(1.1);
+        }
 
-    .card p {
-      font-size: 18px;
-      color: #333;
-    }
-  </style>
+        .heart-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="%23ff6b6b"/></svg>') no-repeat center center;
+            background-size: contain;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .carta {
+            display: none;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            margin: 0 auto;
+            animation: abrirCarta 1s ease forwards;
+            font-family: 'Patrick Hand', cursive; /* Aplicar la fuente a la carta */
+        }
+
+        @keyframes abrirCarta {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .carta p {
+            font-size: 1em;
+            color: #333;
+            line-height: 1.6;
+            margin: 0; /* Eliminar márgenes por defecto */
+        }
+
+        /* Ajustes para dispositivos móviles */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em; /* Tamaño de fuente más pequeño en móviles */
+            }
+
+            button {
+                font-size: 1em;
+                padding: 12px 24px; /* Botón más compacto */
+            }
+
+            .carta {
+                padding: 15px; /* Menos padding en móviles */
+            }
+
+            .carta p {
+                font-size: 0.9em; /* Tamaño de fuente más pequeño en móviles */
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="question">
-      <p>¿Quieres ser mi San Valknetin?</p>
-      <button id="yesButton">¡Sí!</button>
+    <div class="heart-background"></div>
+    <div class="container">
+        <h1>¿Quieres ser mi San Valentín?</h1>
+        <button onclick="mostrarCarta()">¡Abrir la carta!</button>
+        <div class="carta" id="carta">
+            <p>
+                Loha mi amor,<br><br>
+                En este día solo me gustaría decirte que eres una de las persona más importantes de mi vida. 
+                Tu compañía y tu amor me hace sentir muy feliz. 
+                No puedo decirte con palabras lo mucho que significas para mí, 
+                pero espero que te hayan gustado los detalles que te quise regalar en este día y te haga sentir lo muy especial que eres.<br><br>
+                Feliz San Valentín, mi amor.<br><br>
+                
+                De: Marce ❤️
+            </p>
+        </div>
     </div>
-    <div class="card" id="valentineCard">
-      <h2>¡Feliz Día de San Valentín!</h2>
-      <p>Gracias por ser tan especial. Te quiero mucho y siempre estaré aquí para ti. ❤️</p>
-    </div>
-  </div>
 
-  <script>
-    document.getElementById('yesButton').addEventListener('click', function() {
-      document.getElementById('valentineCard').style.display = 'block';
-    });
-  </script>
+    <script>
+        function mostrarCarta() {
+            const carta = document.getElementById('carta');
+            carta.style.display = 'block';
+            document.querySelector('button').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
