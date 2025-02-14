@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carta de San Valentín para Loha</title>
+    <title>Carta de San Valentín</title>
+    <!-- Enlace a la fuente Patrick Hand de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Patrick Hand', cursive; 
+            font-family: 'Patrick Hand', cursive; /* Aplicar la fuente Patrick Hand */
             margin: 0;
             padding: 0;
             display: flex;
@@ -29,6 +30,7 @@
             font-size: 2.5em;
             color: #d32f2f;
             margin-bottom: 20px;
+            line-height: 1.2; /* Mejorar el espaciado en móviles */
         }
 
         button {
@@ -41,7 +43,7 @@
             border-radius: 10px;
             margin-top: 20px;
             transition: transform 0.3s ease;
-            font-family: 'Patrick Hand', cursive; 
+            font-family: 'Patrick Hand', cursive; /* Aplicar la fuente al botón */
         }
 
         button:hover {
@@ -70,7 +72,7 @@
             width: 100%;
             margin: 0 auto;
             animation: abrirCarta 1s ease forwards;
-            font-family: 'Patrick Hand', cursive; 
+            font-family: 'Patrick Hand', cursive; /* Aplicar la fuente a la carta */
         }
 
         @keyframes abrirCarta {
@@ -88,21 +90,26 @@
             font-size: 1em;
             color: #333;
             line-height: 1.6;
+            margin: 0; /* Eliminar márgenes por defecto */
         }
 
-        
+        /* Ajustes para dispositivos móviles */
         @media (max-width: 600px) {
             h1 {
-                font-size: 2em;
+                font-size: 2em; /* Tamaño de fuente más pequeño en móviles */
             }
 
             button {
                 font-size: 1em;
-                padding: 10px 20px;
+                padding: 12px 24px; /* Botón más compacto */
+            }
+
+            .carta {
+                padding: 15px; /* Menos padding en móviles */
             }
 
             .carta p {
-                font-size: 0.9em;
+                font-size: 0.9em; /* Tamaño de fuente más pequeño en móviles */
             }
         }
     </style>
@@ -111,7 +118,7 @@
     <div class="heart-background"></div>
     <div class="container">
         <h1>¿Quieres ser mi San Valentín?</h1>
-        <button onclick="mostrarCarta()">¡Sí!</button>
+        <button onclick="mostrarCarta()">¡Sí!!</button>
         <div class="carta" id="carta">
             <p>
                 Loha mi amor,<br><br>
